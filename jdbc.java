@@ -8,7 +8,7 @@ public class jdbc{
        private static String password ="1234";
        
     public static void main(String[] args) throws Exception {
-       String querry ="Select " 
+       
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn =DriverManager.getConnection(url,username,password);
         if (conn != null) {
