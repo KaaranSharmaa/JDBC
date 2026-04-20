@@ -10,6 +10,7 @@ public class jdbc{
        public  static String ViewQuerry="Select * from students";
        public  static String updatequery="UPDATE students SET Sname = ? WHERE Sid = ?";
        public static String deletequery="DELETE FROM students WHERE Sid = ?";
+       public static String insertquery="insert into students (Sid, Sname)value(?,?)";
 
        
     public static void main(String[] args) throws Exception {
@@ -34,6 +35,11 @@ public class jdbc{
         PreparedStatement delete = conn.prepareStatement(deletequery);
         delete.setInt(1, 1);
         delete.executeUpdate();
+        
+        PreparedStatement insert = conn.prepareStatement(insertquery);
+        insert.setInt(1, 1);
+        insert.setString(2, "ankit");
+        insert.executeUpdate();
 
         
         conn.close();
