@@ -8,7 +8,7 @@ public class jdbc{
        private static String username ="root";
        private static String password ="1234";
        public static String ViewQuerry="Select * from students";
-    //    public static String updatequery="UPDATE `students` SET `Sname` = ? WHERE `students`.`Sid` ?;";
+       public static String updatequery="UPDATE students SET Sname = ? WHERE Sid = ?";
        
     public static void main(String[] args) throws Exception {
        
@@ -24,9 +24,10 @@ public class jdbc{
         System.out.println(rm.getString("Sname") + " "+ rm.getInt("Sid"));
        }
         System.out.println("data fetched successfully!");
-        // PreparedStatement update = conn.prepareStatement(updatequery);
-        // update.setString("amit",1);
-        // update.setInt("karan", 2);
+        PreparedStatement update = conn.prepareStatement(updatequery);
+        update.setString(1,"amit");
+        update.setInt(2, 1);
+        update.executeUpdate();
 
         
         conn.close();
