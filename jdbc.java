@@ -4,11 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class jdbc{
-       private static  String url ="jdbc:mysql://localhost:3306/Demojdbc";
+       private static String url ="jdbc:mysql://localhost:3306/Demojdbc";
        private static String username ="root";
        private static String password ="1234";
-       public static String ViewQuerry="Select * from students";
-       public static String updatequery="UPDATE students SET Sname = ? WHERE Sid = ?";
+       public  static String ViewQuerry="Select * from students";
+       public  static String updatequery="UPDATE students SET Sname = ? WHERE Sid = ?";
+       public static String deletequery="DELETE FROM students WHERE Sid = ?";
+
        
     public static void main(String[] args) throws Exception {
        
@@ -28,6 +30,10 @@ public class jdbc{
         update.setString(1,"amit");
         update.setInt(2, 1);
         update.executeUpdate();
+
+        PreparedStatement delete = conn.prepareStatement(deletequery);
+        delete.setInt(1, 1);
+        delete.executeUpdate();
 
         
         conn.close();
